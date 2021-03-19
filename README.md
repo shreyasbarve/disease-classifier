@@ -12,11 +12,27 @@
 </div>
 <br>
 
+## PACKAGES / MODULES USED
+
+- Python
+  > pandas, seaborn, numpy, matplotlib, openCV.
+- Machine Learning
+  > Random Forest Classifier, KNN, Logistic Regression, SVM, CNN.
+- Evaluation Metric
+  > Confusion matrix, Classification report.
+
+## TECHNOLOGY STACK
+
+- Frontend
+  - React, react-router-dom, recharts.
+- Backend
+  - Django, Rest API.
+
 ## PROBLEM STATEMENT
 
-> We intend to create a system to predict diseases using deep learning along with a health analyzer to maintain the report of the patient.
+- We intend to create a system to predict diseases using deep learning along with a health analyzer to maintain the report of the patient.
 
-> Disease Prediction system based on predictive modeling predicts the disease of the user based on the symptoms that user provides as an input to the system.
+- Disease Prediction system based on predictive modeling predicts the disease of the user based on the symptoms that user provides as an input to the system.
 
 ## MEMBERS
 
