@@ -61,14 +61,18 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {drawerItems.map((item, index) => (
-          <ListItem button key={index}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <Link to={`${item.link}`} style={{ textDecoration: "none" }}>
+          <Link
+            to={`${item.link}`}
+            style={{ textDecoration: "none" }}
+            key={index}
+          >
+            <ListItem button>
+              <ListItemIcon>{item.icon}</ListItemIcon>
               <Typography variant="body1" color="textSecondary">
                 {item.name}
               </Typography>
-            </Link>
-          </ListItem>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>
