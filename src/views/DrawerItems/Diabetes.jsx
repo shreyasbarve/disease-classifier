@@ -1,4 +1,4 @@
-import MyPieChart from "../components/Graphs/MyPieChart";
+import MyPieChart from "../../components/Graphs/MyPieChart";
 
 export default function Diabetes() {
   return <MyPieChart />;

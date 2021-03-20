@@ -25,11 +25,11 @@ import {
 } from "@material-ui/icons";
 
 // styles
-import useStyles from "./styles";
+import drawerStyles from "./styles";
 
 function ResponsiveDrawer(props) {
   const { window } = props;
-  const classes = useStyles();
+  const classes = drawerStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
