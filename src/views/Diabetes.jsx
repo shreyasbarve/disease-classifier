@@ -1,3 +1,5 @@
+import MyPieChart from "../components/Graphs/MyPieChart";
+
 export default function Diabetes() {
-  return <h1>Diabetes</h1>;
+  return <MyPieChart />;
 }

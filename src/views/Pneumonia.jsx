@@ -1,3 +1,5 @@
+import MYRadialChart from "../components/Graphs/MyRadialChart";
+
 export default function Pneumonia() {
-  return <h1>Pneumonia</h1>;
+  return <MYRadialChart />;
 }

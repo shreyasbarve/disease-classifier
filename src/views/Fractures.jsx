@@ -1,3 +1,5 @@
+import MyTreeMap from "../components/Graphs/MyTreeMap";
+
 export default function Fractures() {
-  return <h1>Fractures</h1>;
+  return <MyTreeMap />;
 }

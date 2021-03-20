@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
+      alignItems: "center",
     },
-    alignItems: "center",
   },
   menuButton: {
     marginRight: theme.spacing(2),
