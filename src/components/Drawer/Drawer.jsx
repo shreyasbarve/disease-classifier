@@ -27,7 +27,7 @@ import {
 // styles
 import drawerStyles from "./styles";
 
-function ResponsiveDrawer(props) {
+export default function ResponsiveDrawer(props) {
   const { window } = props;
   const classes = drawerStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -37,20 +37,20 @@ function ResponsiveDrawer(props) {
   };
 
   const drawerItems = [
-    { name: "Home", icon: <HomeIcon color="secondary" />, link: "/" },
+    { name: "Home", icon: <HomeIcon color="primary" />, link: "/" },
     {
       name: "Diabetes",
-      icon: <VirusIcon color="secondary" />,
+      icon: <VirusIcon color="primary" />,
       link: "/diabetes",
     },
     {
       name: "Pneumonia",
-      icon: <VirusIcon color="secondary" />,
+      icon: <VirusIcon color="primary" />,
       link: "/pneumonia",
     },
     {
       name: "Fractures",
-      icon: <VirusIcon color="secondary" />,
+      icon: <VirusIcon color="primary" />,
       link: "/fractures",
     },
   ];
@@ -138,4 +138,3 @@ function ResponsiveDrawer(props) {
   );
 }
 
-export default ResponsiveDrawer;

@@ -1,12 +1,13 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { blueGrey } from "@material-ui/core/colors";
 
-const loginStyles = makeStyles((theme) => ({
+const loginStyles = makeStyles(() => ({
   root: {
-    justifyContent: "center",
+    backgroundColor: blueGrey[200],
+    height: "100vh",
   },
-  paper: {
-    padding: "2rem",
-    textAlign: "center",
+  grid: {
+    marginTop: "2rem",
   },
 }));
 
