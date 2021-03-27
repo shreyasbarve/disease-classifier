@@ -37,7 +37,7 @@ export default function ResponsiveDrawer(props) {
   };
 
   const drawerItems = [
-    { name: "Home", icon: <HomeIcon color="primary" />, link: "/" },
+    { name: "Home", icon: <HomeIcon color="primary" />, link: "/home" },
     {
       name: "Diabetes",
       icon: <VirusIcon color="primary" />,
@@ -137,4 +137,3 @@ export default function ResponsiveDrawer(props) {
     </div>
   );
 }
-
