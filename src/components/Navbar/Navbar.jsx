@@ -4,8 +4,13 @@ import { navbarStyles } from "./styles";
 
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+// google login
+import { GoogleLogin } from "react-google-login";
+
+export default function Navbar({ handleOpen }) {
   const classes = navbarStyles();
+
+  const googleResponse = (res) => console.log(res);
 
   return (
     <div className={classes.grow}>
@@ -16,6 +21,13 @@ export default function Navbar() {
               Disease Classifier
             </Typography>
           </Link>
+          <GoogleLogin
+            clientId="251679347805-1jqkl4k5o3vv9c7t679vav5tc8l6koia.apps.googleusercontent.com"
+            buttonText="Login with google"
+            onSuccess={googleResponse}
+            onFailure={googleResponse}
+            cookiePolicy={"single_host_origin"}
+          />
         </Toolbar>
       </AppBar>
     </div>

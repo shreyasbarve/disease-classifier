@@ -1,13 +1,13 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { grey } from "@material-ui/core/colors";
 
 export const navbarStyles = makeStyles(() => ({
   grow: {
     flexGrow: 1,
   },
   appbar: {
-    // borderRadius: "50px",
-    backgroundColor: grey[100],
+    backgroundColor: "#fff",
+    boxShadow: "none",
+    borderBottom: "2px solid #000",
   },
   navbar: {
     justifyContent: "center",
@@ -15,6 +15,7 @@ export const navbarStyles = makeStyles(() => ({
   link: {
     textDecoration: "none",
     color: "#000",
+    flexGrow: 1,
   },
   title: {
     fontSize: "1.5rem",

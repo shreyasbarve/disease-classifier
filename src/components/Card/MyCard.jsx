@@ -19,6 +19,9 @@ import {
 } from "@material-ui/icons";
 import cardStyles from "./styles";
 
+// image
+import cover from "../../images/cover.jpg";
+
 export default function MyCard() {
   const classes = cardStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -43,11 +46,7 @@ export default function MyCard() {
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
       />
-      <CardMedia
-        className={classes.media}
-        // image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      />
+      <CardMedia className={classes.media} image={cover} title="Paella dish" />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           This impressive paella is a perfect party dish and a fun meal to cook

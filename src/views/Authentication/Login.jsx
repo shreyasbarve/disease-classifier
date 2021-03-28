@@ -27,9 +27,8 @@ export default function Login() {
 
   return (
     <div className={classes.root}>
+      <Navbar />
       <Container>
-        <Navbar />
-
         <Grid container spacing={3} className={classes.grid}>
           <Grid item xs={12} md={6} lg={3}>
             <MyCard />
