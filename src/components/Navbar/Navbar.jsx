@@ -1,16 +1,31 @@
-import React from "react";
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import React, { useState } from "react";
+import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import { navbarStyles } from "./styles";
 
 import { Link } from "react-router-dom";
 
-// google login
-import { GoogleLogin } from "react-google-login";
+// firebase
+import { firebase_provider, auth } from "../../firebase";
+import MyButton from "../Button/MyButton";
 
-export default function Navbar({ handleOpen }) {
+export default function Navbar() {
   const classes = navbarStyles();
+  const [userData, setUserData] = useState({});
 
-  const googleResponse = (res) => console.log(res);
+  // signing in function
+  async function googleSignInPopup() {
+    try {
+      const res = await auth.signInWithPopup(firebase_provider);
+      setUserData({
+        ...userData,
+        uid: res.user.uid,
+        email: res.additionalUserInfo.profile.email,
+      });
+      // function to post data to backend
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div className={classes.grow}>
@@ -21,13 +36,7 @@ export default function Navbar({ handleOpen }) {
               Disease Classifier
             </Typography>
           </Link>
-          <GoogleLogin
-            clientId="251679347805-1jqkl4k5o3vv9c7t679vav5tc8l6koia.apps.googleusercontent.com"
-            buttonText="Login with google"
-            onSuccess={googleResponse}
-            onFailure={googleResponse}
-            cookiePolicy={"single_host_origin"}
-          />
+          <MyButton onClick={googleSignInPopup}>Login with Google</MyButton>
         </Toolbar>
       </AppBar>
     </div>

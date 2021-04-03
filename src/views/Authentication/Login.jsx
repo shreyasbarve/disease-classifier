@@ -11,9 +11,9 @@ import Navbar from "../../components/Navbar/Navbar";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="primary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="http://localhost:3000/">
         Disease Classifier
       </Link>{" "}
       {new Date().getFullYear()}
@@ -44,6 +44,8 @@ export default function Login() {
           </Grid>
         </Grid>
       </Container>
+
+      <Copyright />
     </div>
   );
 }
