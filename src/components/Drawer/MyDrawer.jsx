@@ -27,7 +27,7 @@ import {
 // styles
 import drawerStyles from "./styles";
 
-export default function ResponsiveDrawer(props) {
+export default function MyDrawer(props) {
   const { window } = props;
   const classes = drawerStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);

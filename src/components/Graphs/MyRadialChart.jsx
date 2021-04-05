@@ -57,7 +57,7 @@ const style = {
   lineHeight: "24px",
 };
 
-export default function MYRadialChart() {
+export default function MyRadialChart() {
   return (
     <ResponsiveContainer width="100%" height="80%">
       <RadialBarChart

@@ -8,11 +8,18 @@ import theme from "./MyTheme";
 // entry point
 import App from "./App";
 
+// redux store
+import { applyMiddleware, compose, createStore } from "redux";
+import reducers from "./redux/reducers/rootReducer";
+import thunk from "redux-thunk";
+import { Provider } from "react-redux";
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById("root")
 );
