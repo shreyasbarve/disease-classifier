@@ -1,8 +1,12 @@
 // core
 import React from "react";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { navbarStyles } from "./styles";
+
+// navigation
 import { Link } from "react-router-dom";
+
+// styles
+import { navbarStyles } from "./styles";
 
 // components
 import MyButton from "../Button/MyButton";

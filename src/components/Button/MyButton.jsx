@@ -1,5 +1,8 @@
-import { withStyles } from "@material-ui/core/styles";
+// core
 import Button from "@material-ui/core/Button";
+
+// styles
+import { withStyles } from "@material-ui/core/styles";
 import { purple } from "@material-ui/core/colors";
 
 const MyButton = withStyles((theme) => ({

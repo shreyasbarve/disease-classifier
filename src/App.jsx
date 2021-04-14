@@ -14,9 +14,11 @@ import Pneumonia from "./views/DrawerItems/Pneumonia";
 export default function App() {
   return (
     <Router>
+      {/* global snackbar */}
       <MySnackbar />
       <Switch>
         <Route exact path="/" component={Login} />
+        {/* parent drawer on all pages */}
         <MyDrawer>
           <Route exact path="/home" component={Home} />
           <Route exact path="/diabetes" component={Diabetes} />

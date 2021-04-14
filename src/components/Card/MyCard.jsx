@@ -1,3 +1,4 @@
+// core
 import React from "react";
 import clsx from "clsx";
 import {
@@ -11,19 +12,25 @@ import {
   IconButton,
   Typography,
 } from "@material-ui/core";
+
+// icons
 import {
   Favorite as FavoriteIcon,
   Share as ShareIcon,
   ExpandMore as ExpandMoreIcon,
   MoreVert as MoreVertIcon,
 } from "@material-ui/icons";
+
+// styles
 import cardStyles from "./styles";
 
 // image
 import cover from "../../images/cover.jpg";
 
 export default function MyCard() {
+  // styles
   const classes = cardStyles();
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
