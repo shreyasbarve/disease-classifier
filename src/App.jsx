@@ -2,6 +2,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // components
 import MyDrawer from "./components/Drawer/MyDrawer";
+import MySnackbar from "./components/Snackbar/MySnackbar";
+
+// Views
 import Login from "./views/Authentication/Login";
 import Diabetes from "./views/DrawerItems/Diabetes/Diabetes";
 import Fractures from "./views/DrawerItems/Fractures";
@@ -11,6 +14,7 @@ import Pneumonia from "./views/DrawerItems/Pneumonia";
 export default function App() {
   return (
     <Router>
+      <MySnackbar />
       <Switch>
         <Route exact path="/" component={Login} />
         <MyDrawer>

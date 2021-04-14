@@ -62,6 +62,12 @@ const drawerStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  title: {
+    textTransform: "uppercase",
+    fontWeight: "bold",
+    letterSpacing: 3,
+    fontSize: "1.3rem",
+  },
 }));
 
 export default drawerStyles;

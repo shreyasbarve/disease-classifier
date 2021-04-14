@@ -11,6 +11,7 @@ import {
   ListItem,
   ListItemIcon,
   Toolbar,
+  Tooltip,
   Typography,
 } from "@material-ui/core";
 
@@ -36,21 +37,29 @@ export default function MyDrawer(props) {
   const handleDrawerToggle = () => setOpen(!open);
 
   const drawerItems = [
-    { name: "Home", icon: <HomeIcon color="primary" />, link: "/home" },
+    {
+      name: "Home",
+      icon: <HomeIcon color="primary" />,
+      link: "/home",
+      tooltip: "Home",
+    },
     {
       name: "Diabetes",
       icon: <VirusIcon color="primary" />,
       link: "/diabetes",
+      tooltip: "Diabetes",
     },
     {
       name: "Pneumonia",
       icon: <VirusIcon color="primary" />,
       link: "/pneumonia",
+      tooltip: "Pneumonia",
     },
     {
       name: "Fractures",
       icon: <VirusIcon color="primary" />,
       link: "/fractures",
+      tooltip: "Fractures",
     },
   ];
 
@@ -63,12 +72,14 @@ export default function MyDrawer(props) {
             style={{ textDecoration: "none" }}
             key={index}
           >
-            <ListItem button>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <Typography variant="body1" color="textSecondary">
-                {item.name}
-              </Typography>
-            </ListItem>
+            <Tooltip title={item.tooltip}>
+              <ListItem button>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <Typography variant="body1" color="textSecondary">
+                  {item.name}
+                </Typography>
+              </ListItem>
+            </Tooltip>
           </Link>
         ))}
       </List>
@@ -96,7 +107,7 @@ export default function MyDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="caption" noWrap>
+          <Typography noWrap className={classes.title}>
             DISEASE CLASSIFIER
           </Typography>
         </Toolbar>

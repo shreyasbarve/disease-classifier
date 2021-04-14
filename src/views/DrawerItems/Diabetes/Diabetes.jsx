@@ -2,7 +2,18 @@
 import { useState } from "react";
 
 // components
-import { Grid, Paper, TextField, Button } from "@material-ui/core";
+import {
+  Grid,
+  Paper,
+  TextField,
+  Button,
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+} from "@material-ui/core";
 
 // redux and api
 import {
@@ -10,6 +21,7 @@ import {
   predict_diabetes_8,
 } from "../../../redux/actions/diabetes";
 import { useDispatch, useSelector } from "react-redux";
+import { failure_snackbar } from "../../../redux/actions/snackbar";
 
 // styles
 import { useStyles } from "./styles";
@@ -19,7 +31,7 @@ export default function Diabetes() {
 
   // redux
   const dispatch = useDispatch();
-  const details = useSelector((state) => state.details);
+  const details = useSelector((state) => state.diabetesReducer);
 
   const initialState = {
     pregnancies: 0,
@@ -30,6 +42,15 @@ export default function Diabetes() {
     bmi: 0,
     dp_function: "0.130",
     age: 0,
+    //
+    // pregnancies: 1,
+    // glucose: 130,
+    // bp: 120,
+    // skin_thickness: 5,
+    // insulin: 26,
+    // bmi: 25,
+    // dp_function: "0.130",
+    // age: 30,
   };
 
   const [userData, setuserData] = useState(initialState);
@@ -38,18 +59,34 @@ export default function Diabetes() {
     setuserData({ ...userData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const res = dispatch(predict_diabetes_8(userData));
-    console.log(res);
+    if (userData.glucose <= 0 || userData.bmi <= 0 || userData.age <= 0) {
+      dispatch(failure_snackbar("Insufficient Data"));
+    } else if (
+      userData.pregnancies <= 0 ||
+      userData.bp <= 0 ||
+      userData.skin_thickness <= 0 ||
+      userData.insulin <= 0
+    ) {
+      dispatch(
+        predict_diabetes_4({
+          glucose: userData.glucose,
+          bmi: userData.bmi,
+          dp_function: userData.dp_function,
+          age: userData.age,
+        })
+      );
+    } else {
+      dispatch(predict_diabetes_8(userData));
+    }
     setuserData(initialState);
-    console.log("details", details);
   };
 
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={6}>
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} elevation={5}>
           {/* input */}
           <Grid container spacing={3}>
             {/* Title */}
@@ -81,6 +118,7 @@ export default function Diabetes() {
                 helperText="Glucose count in mg/dl"
                 fullWidth
                 margin="normal"
+                required
               />
             </Grid>
             {/* group 1 */}
@@ -122,6 +160,7 @@ export default function Diabetes() {
                 onChange={(e) => handleChange(e)}
                 fullWidth
                 margin="normal"
+                required
               />
             </Grid>
 
@@ -148,6 +187,7 @@ export default function Diabetes() {
                 onChange={(e) => handleChange(e)}
                 helperText="Age in years"
                 margin="normal"
+                required
               />
             </Grid>
             {/* group 4 */}
@@ -165,7 +205,40 @@ export default function Diabetes() {
 
       {/* results */}
       <Grid item xs={12} md={6}>
-        <Paper className={classes.paper}>Results</Paper>
+        <Paper className={classes.paper} elevation={5}>
+          <Grid container>
+            {/* Title */}
+            <Grid item xs={12} className={classes.title}>
+              Results
+            </Grid>
+
+            {/* results */}
+            <Grid item xs={12}>
+              <TableContainer>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Random Forest Normal</TableCell>
+                      <TableCell>Random Forest Un-Skewed</TableCell>
+                      <TableCell>KNN Un-Skewed</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>{details.RandomForestNormal}</TableCell>
+                      <TableCell>{details.RandomForestUnskewed}</TableCell>
+                      <TableCell>{details.KNNUnskewed}</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Grid>
+
+            <Grid item xs={12}>
+              Graph here
+            </Grid>
+          </Grid>
+        </Paper>
       </Grid>
     </Grid>
   );
