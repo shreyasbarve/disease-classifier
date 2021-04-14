@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./index.css";
 
 // custom theme for material-ui
 import { ThemeProvider } from "@material-ui/styles";

@@ -1,5 +1,5 @@
 // core
-import React, { useState } from "react";
+import React from "react";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { navbarStyles } from "./styles";
 import { Link } from "react-router-dom";
@@ -16,7 +16,6 @@ import { useDispatch } from "react-redux";
 
 export default function Navbar() {
   const classes = navbarStyles();
-  const [userData, setUserData] = useState({});
 
   // redux
   const dispatch = useDispatch();
@@ -25,13 +24,9 @@ export default function Navbar() {
   const googleSignInPopup = async () => {
     try {
       const res = await auth.signInWithPopup(firebase_provider);
-      setUserData({
-        ...userData,
-        uid: res.user.uid,
-        email: res.additionalUserInfo.profile.email,
-      });
-      // function to post data to backend
-      dispatch(register_user(userData));
+      const id = res.user.uid;
+      const mail = res.additionalUserInfo.profile.email;
+      dispatch(register_user({ uid: id, email: mail }));
     } catch (err) {
       console.log(err);
     }

@@ -7,6 +7,6 @@ export const register_user = (user) => async (dispatch) => {
     const { data } = await api.register_user(user);
     dispatch({ type: REGISTER_USER, payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };

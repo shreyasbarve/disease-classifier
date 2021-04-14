@@ -1,11 +1,11 @@
 // core
 import React from "react";
+
 import {
   AppBar,
   CssBaseline,
   Divider,
   Drawer,
-  Hidden,
   IconButton,
   List,
   ListItem,
@@ -14,27 +14,26 @@ import {
   Typography,
 } from "@material-ui/core";
 
-// navigation
-import { Link } from "react-router-dom";
-
 // icons
 import {
   Menu as MenuIcon,
   BlurOn as VirusIcon,
   HomeOutlined as HomeIcon,
+  ChevronLeft as ChevronLeftIcon,
 } from "@material-ui/icons";
 
+// navigation
+import { Link } from "react-router-dom";
+
 // styles
+import clsx from "clsx";
 import drawerStyles from "./styles";
 
 export default function MyDrawer(props) {
-  const { window } = props;
   const classes = drawerStyles();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+  const handleDrawerToggle = () => setOpen(!open);
 
   const drawerItems = [
     { name: "Home", icon: <HomeIcon color="primary" />, link: "/home" },
@@ -57,8 +56,6 @@ export default function MyDrawer(props) {
 
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
-      <Divider />
       <List>
         {drawerItems.map((item, index) => (
           <Link
@@ -78,20 +75,24 @@ export default function MyDrawer(props) {
     </div>
   );
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            edge="start"
             onClick={handleDrawerToggle}
-            className={classes.menuButton}
+            edge="start"
+            className={clsx(classes.menuButton, {
+              [classes.hide]: open,
+            })}
           >
             <MenuIcon />
           </IconButton>
@@ -100,36 +101,27 @@ export default function MyDrawer(props) {
           </Typography>
         </Toolbar>
       </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
-          <Drawer
-            container={container}
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-      </nav>
+      <Drawer
+        variant="permanent"
+        className={clsx(classes.drawer, {
+          [classes.drawerOpen]: open,
+          [classes.drawerClose]: !open,
+        })}
+        classes={{
+          paper: clsx({
+            [classes.drawerOpen]: open,
+            [classes.drawerClose]: !open,
+          }),
+        }}
+      >
+        <div className={classes.toolbar}>
+          <IconButton onClick={handleDrawerToggle}>
+            <ChevronLeftIcon />
+          </IconButton>
+        </div>
+        <Divider />
+        <List>{drawer}</List>
+      </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
         {props.children}
