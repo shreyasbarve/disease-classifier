@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // components
 import MyDrawer from "./components/Drawer/MyDrawer";
 import MySnackbar from "./components/Snackbar/MySnackbar";
+import MySpinner from "./components/Spinner/MySpinner";
 
 // Views
 import Login from "./views/Authentication/Login";
@@ -14,6 +15,7 @@ import Pneumonia from "./views/DrawerItems/Pneumonia";
 export default function App() {
   return (
     <Router>
+      <MySpinner />
       <MySnackbar />
       <Switch>
         <Route exact path="/" component={Login} />

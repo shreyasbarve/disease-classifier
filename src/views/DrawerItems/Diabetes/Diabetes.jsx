@@ -8,6 +8,7 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  Typography,
 } from "@material-ui/core";
 import clsx from "clsx";
 
@@ -50,20 +51,29 @@ export default function Diabetes() {
                 <Table>
                   <TableHead>
                     <TableRow>
-                      <TableCell>Random Forest Normal</TableCell>
-                      <TableCell>Random Forest Un-Skewed</TableCell>
-                      <TableCell>KNN Un-Skewed</TableCell>
+                      <TableCell>Gradient Boost Classifier</TableCell>
+                      <TableCell>Random Forest Classifier</TableCell>
+                      <TableCell>KNN Classifier</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     <TableRow>
-                      <TableCell>{details.RandomForestNormal}</TableCell>
-                      <TableCell>{details.RandomForestUnskewed}</TableCell>
-                      <TableCell>{details.KNNUnskewed}</TableCell>
+                      <TableCell>
+                        {details.RandomForestNormal === 0 ? "NO" : "YES"}
+                      </TableCell>
+                      <TableCell>
+                        {details.RandomForestUnskewed === 0 ? "NO" : "YES"}
+                      </TableCell>
+                      <TableCell>
+                        {details.KNNUnskewed === 0 ? "NO" : "YES"}
+                      </TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
               </TableContainer>
+              <Typography variant="overline">
+                According to our prediction you don't have diabetes
+              </Typography>
             </Grid>
           </Grid>
         </Paper>
