@@ -31,7 +31,7 @@ import drawerStyles from "./styles";
 
 export default function MyDrawer(props) {
   const classes = drawerStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const handleDrawerToggle = () => setOpen(!open);
 

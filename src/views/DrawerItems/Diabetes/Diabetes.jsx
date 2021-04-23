@@ -13,6 +13,7 @@ import clsx from "clsx";
 
 // components
 import Form from "./Form";
+import MyPieChart from "../../../components/Graphs/MyPieChart";
 
 // redux and api
 import { useSelector } from "react-redux";
@@ -80,7 +81,7 @@ export default function Diabetes() {
 
               {/* graph canvas */}
               <Grid item xs={12}>
-                Graph here
+                <MyPieChart />
               </Grid>
             </Grid>
           </Grid>

@@ -15,6 +15,6 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   graphContainer: {
-    marginTop: "4rem",
+    marginTop: "2.5rem",
   },
 }));

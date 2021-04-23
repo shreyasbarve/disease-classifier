@@ -14,7 +14,6 @@ import Pneumonia from "./views/DrawerItems/Pneumonia";
 export default function App() {
   return (
     <Router>
-      {/* global snackbar */}
       <MySnackbar />
       <Switch>
         <Route exact path="/" component={Login} />
