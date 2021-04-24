@@ -7,10 +7,10 @@ import MySpinner from "./components/Spinner/MySpinner";
 
 // Views
 import Login from "./views/Authentication/Login";
-import Diabetes from "./views/DrawerItems/Diabetes/Diabetes";
-import Fractures from "./views/DrawerItems/Fractures";
 import Home from "./views/DrawerItems/Home";
-import Pneumonia from "./views/DrawerItems/Pneumonia";
+import Diabetes from "./views/DrawerItems/Diabetes/Diabetes";
+import Pneumonia from "./views/DrawerItems/Pneumonia/Pneumonia";
+import Fractures from "./views/DrawerItems/Fractures";
 
 export default function App() {
   return (

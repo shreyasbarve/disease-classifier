@@ -32,6 +32,7 @@ import drawerStyles from "./styles";
 export default function MyDrawer(props) {
   const classes = drawerStyles();
   const [open, setOpen] = React.useState(true);
+  const [titleName, setTitleName] = React.useState("DISEASE CLASSIFIER");
 
   const handleDrawerToggle = () => setOpen(!open);
 
@@ -41,24 +42,28 @@ export default function MyDrawer(props) {
       icon: <HomeIcon color="primary" />,
       link: "/home",
       tooltip: "Home",
+      title: "DISEASE CLASSIFIER",
     },
     {
       name: "Diabetes",
       icon: <VirusIcon color="primary" />,
       link: "/diabetes",
       tooltip: "Diabetes",
+      title: "DIABETES",
     },
     {
       name: "Pneumonia",
       icon: <VirusIcon color="primary" />,
       link: "/pneumonia",
       tooltip: "Pneumonia",
+      title: "PNEUMONIA",
     },
     {
       name: "Fractures",
       icon: <VirusIcon color="primary" />,
       link: "/fractures",
       tooltip: "Fractures",
+      title: "FRACTURES",
     },
   ];
 
@@ -72,7 +77,7 @@ export default function MyDrawer(props) {
             key={index}
           >
             <Tooltip title={item.tooltip}>
-              <ListItem button>
+              <ListItem button onClick={() => setTitleName(item.title)}>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <Typography variant="body1" color="textSecondary">
                   {item.name}
@@ -107,7 +112,7 @@ export default function MyDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography noWrap className={classes.title}>
-            DISEASE CLASSIFIER
+            {titleName}
           </Typography>
         </Toolbar>
       </AppBar>

@@ -1,4 +1,7 @@
+// core
 import { Grid } from "@material-ui/core";
+
+// components
 import MyCard from "../../components/Card/MyCard";
 
 export default function Home() {

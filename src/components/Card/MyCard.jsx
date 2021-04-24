@@ -1,6 +1,5 @@
 // core
 import React from "react";
-import clsx from "clsx";
 import {
   Card,
   CardHeader,
@@ -23,6 +22,7 @@ import {
 
 // styles
 import cardStyles from "./styles";
+import clsx from "clsx";
 
 // image
 import cover from "../../images/cover.jpg";

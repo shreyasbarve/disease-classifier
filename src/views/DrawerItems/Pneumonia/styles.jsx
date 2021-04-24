@@ -19,4 +19,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     flexDirection: "column",
   },
+  imageContainer: {
+    marginBottom: "1.2rem",
+  },
 }));

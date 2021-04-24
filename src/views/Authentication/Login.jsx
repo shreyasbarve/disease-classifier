@@ -23,6 +23,7 @@ function Copyright() {
 }
 
 export default function Login() {
+  // styles
   const classes = loginStyles();
 
   return (

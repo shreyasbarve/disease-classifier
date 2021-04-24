@@ -21,7 +21,7 @@ import { useSelector } from "react-redux";
 // styles
 import { useStyles } from "./styles";
 
-export default function Diabetes() {
+export default function Pneumonia() {
   // styles
   const classes = useStyles();
 
@@ -82,7 +82,7 @@ export default function Diabetes() {
             <Grid item xs={12}>
               {/* Title */}
               <Grid item xs={12} className={classes.title}>
-                contribution of factors (in %)
+                contribution of factors affecting the prediction
               </Grid>
 
               {/* graph canvas */}
