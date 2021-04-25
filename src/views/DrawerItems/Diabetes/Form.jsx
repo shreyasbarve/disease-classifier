@@ -1,6 +1,9 @@
 // core
 import { useState } from "react";
-import { Paper, Grid, TextField, Button } from "@material-ui/core";
+import { Paper, Grid, TextField } from "@material-ui/core";
+
+// components
+import MyButton from "../../../components/Button/MyButton";
 
 // styles
 import { useStyles } from "./styles";
@@ -19,26 +22,15 @@ export default function Form() {
   //   redux
   const dispatch = useDispatch();
 
-  //   const initialState = {
-  //     pregnancies: 0,
-  //     glucose: 0,
-  //     bp: 0,
-  //     skin_thickness: 0,
-  //     insulin: 0,
-  //     bmi: 0,
-  //     dp_function: "0.130",
-  //     age: 0,
-  //   };
-
   const initialState = {
-    pregnancies: 1,
-    glucose: 130,
-    bp: 120,
-    skin_thickness: 5,
-    insulin: 26,
-    bmi: 25,
+    pregnancies: 0,
+    glucose: 0,
+    bp: 0,
+    skin_thickness: 0,
+    insulin: 0,
+    bmi: 0,
     dp_function: "0.130",
-    age: 30,
+    age: 0,
   };
 
   const [userData, setuserData] = useState(initialState);
@@ -179,9 +171,9 @@ export default function Form() {
 
         {/* group 5 */}
         <Grid item xs={12}>
-          <Button variant="outlined" color="primary" onClick={handleSubmit}>
+          <MyButton variant="outlined" color="primary" onClick={handleSubmit}>
             Submit
-          </Button>
+          </MyButton>
         </Grid>
         {/* group 5 */}
       </Grid>

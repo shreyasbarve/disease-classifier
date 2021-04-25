@@ -28,42 +28,43 @@ import { Link } from "react-router-dom";
 // styles
 import clsx from "clsx";
 import drawerStyles from "./styles";
+import { read_cookie } from "sfcookies";
 
 export default function MyDrawer(props) {
   const classes = drawerStyles();
   const [open, setOpen] = React.useState(true);
   const [titleName, setTitleName] = React.useState("DISEASE CLASSIFIER");
-
+  const uid = read_cookie("uid");
   const handleDrawerToggle = () => setOpen(!open);
 
   const drawerItems = [
     {
       name: "Home",
       icon: <HomeIcon color="primary" />,
-      link: "/home",
+      link: `/home/${uid}`,
       tooltip: "Home",
-      title: "DISEASE CLASSIFIER",
+      title: "Home",
     },
     {
       name: "Diabetes",
       icon: <VirusIcon color="primary" />,
-      link: "/diabetes",
+      link: `/diabetes/${uid}`,
       tooltip: "Diabetes",
-      title: "DIABETES",
+      title: "Diabetes",
     },
     {
       name: "Pneumonia",
       icon: <VirusIcon color="primary" />,
-      link: "/pneumonia",
+      link: `/pneumonia/${uid}`,
       tooltip: "Pneumonia",
-      title: "PNEUMONIA",
+      title: "Pneumonia",
     },
     {
       name: "Fractures",
       icon: <VirusIcon color="primary" />,
-      link: "/fractures",
+      link: `/fractures/${uid}`,
       tooltip: "Fractures",
-      title: "FRACTURES",
+      title: "Fractures",
     },
   ];
 
@@ -77,7 +78,13 @@ export default function MyDrawer(props) {
             key={index}
           >
             <Tooltip title={item.tooltip}>
-              <ListItem button onClick={() => setTitleName(item.title)}>
+              <ListItem
+                button
+                onClick={() => {
+                  setTitleName(item.title);
+                  document.title = item.title;
+                }}
+              >
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <Typography variant="body1" color="textSecondary">
                   {item.name}

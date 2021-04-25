@@ -1,6 +1,7 @@
 // core
 import React from "react";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 // navigation
 import { Link } from "react-router-dom";
@@ -21,6 +22,9 @@ import { useDispatch } from "react-redux";
 export default function Navbar() {
   const classes = navbarStyles();
 
+  // navigation
+  const history = useHistory();
+
   // redux
   const dispatch = useDispatch();
 
@@ -28,9 +32,10 @@ export default function Navbar() {
   const googleSignInPopup = async () => {
     try {
       const res = await auth.signInWithPopup(firebase_provider);
-      const id = res.user.uid;
-      const mail = res.additionalUserInfo.profile.email;
-      dispatch(register_user({ uid: id, email: mail }));
+      const uid = res.user.uid;
+      const email = res.additionalUserInfo.profile.email;
+      dispatch(register_user({ uid: uid, email: email }));
+      history.replace(`/home/${uid}`);
     } catch (err) {
       console.log(err);
     }

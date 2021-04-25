@@ -1,6 +1,9 @@
 // core
 import { useState } from "react";
-import { Paper, Grid, Button, Typography } from "@material-ui/core";
+import { Paper, Grid, Typography } from "@material-ui/core";
+
+// components
+import MyButton from "../../../components/Button/MyButton";
 
 // image upload
 import FileBase from "react-file-base64";
@@ -9,15 +12,27 @@ import FileBase from "react-file-base64";
 import { useStyles } from "./styles";
 
 // redux and api
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { failure_snackbar } from "../../../redux/actions/snackbar";
+import { predict_pneumonia } from "../../../redux/actions/pneumonia";
 
 export default function Form() {
   //   styles
   const classes = useStyles();
+
   //   redux
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [file, setFile] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (file === "") {
+      dispatch(failure_snackbar("Please select an image"));
+    } else {
+      dispatch(predict_pneumonia({ base64Image: file }));
+    }
+  };
 
   return (
     <Paper className={classes.paper} elevation={5}>
@@ -44,9 +59,9 @@ export default function Form() {
 
         {/* group 5 */}
         <Grid item xs={12}>
-          <Button variant="outlined" color="primary">
+          <MyButton variant="outlined" color="primary" onClick={handleSubmit}>
             Submit
-          </Button>
+          </MyButton>
         </Grid>
         {/* group 5 */}
       </Grid>

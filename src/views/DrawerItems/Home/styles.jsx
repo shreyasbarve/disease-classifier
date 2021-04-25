@@ -14,14 +14,10 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
   },
-  rightGrid: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexDirection: "column",
-  },
-  graph: {
-    [theme.breakpoints.down("md")]: {
-      marginTop: "1.2rem",
+  table: {
+    height: 500,
+    [theme.breakpoints.down("sm")]: {
+      height: 200,
     },
   },
 }));

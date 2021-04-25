@@ -7,10 +7,10 @@ import MySpinner from "./components/Spinner/MySpinner";
 
 // Views
 import Login from "./views/Authentication/Login";
-import Home from "./views/DrawerItems/Home";
+import Home from "./views/DrawerItems/Home/Home";
 import Diabetes from "./views/DrawerItems/Diabetes/Diabetes";
 import Pneumonia from "./views/DrawerItems/Pneumonia/Pneumonia";
-import Fractures from "./views/DrawerItems/Fractures";
+import Fractures from "./views/DrawerItems/Fractures/Fractures";
 
 export default function App() {
   return (
@@ -21,10 +21,10 @@ export default function App() {
         <Route exact path="/" component={Login} />
         {/* parent drawer on all pages */}
         <MyDrawer>
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/diabetes" component={Diabetes} />
-          <Route exact path="/pneumonia" component={Pneumonia} />
-          <Route exact path="/fractures" component={Fractures} />
+          <Route exact path="/home/:uid" component={Home} />
+          <Route exact path="/diabetes/:uid" component={Diabetes} />
+          <Route exact path="/pneumonia/:uid" component={Pneumonia} />
+          <Route exact path="/fractures/:uid" component={Fractures} />
         </MyDrawer>
       </Switch>
     </Router>

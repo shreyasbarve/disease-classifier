@@ -25,7 +25,7 @@ const color = [
 
 export default function MyPieChart() {
   return (
-    <PieChart width={680} height={300}>
+    <PieChart width={600} height={300}>
       <Pie
         dataKey="value"
         isAnimationActive={false}

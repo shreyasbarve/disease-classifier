@@ -13,7 +13,6 @@ import {
 
 // components
 import Form from "./Form";
-import MyPieChart from "../../../components/Graphs/MyPieChart";
 
 // redux and api
 import { useSelector } from "react-redux";
@@ -26,7 +25,7 @@ export default function Pneumonia() {
   const classes = useStyles();
 
   // redux
-  const details = useSelector((state) => state.diabetesReducer);
+  const details = useSelector((state) => state.pneumoniaReducer);
 
   return (
     <Grid container spacing={3}>
@@ -50,28 +49,25 @@ export default function Pneumonia() {
                 <Table>
                   <TableHead>
                     <TableRow>
-                      <TableCell>Gradient Boost Classifier</TableCell>
-                      <TableCell>Random Forest Classifier</TableCell>
-                      <TableCell>KNN Classifier</TableCell>
+                      <TableCell>Prediction</TableCell>
+                      <TableCell>Accuracy</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
                     <TableRow>
-                      <TableCell>
-                        {details.RandomForestNormal === 0 ? "NO" : "YES"}
-                      </TableCell>
-                      <TableCell>
-                        {details.RandomForestUnskewed === 0 ? "NO" : "YES"}
-                      </TableCell>
-                      <TableCell>
-                        {details.KNNUnskewed === 0 ? "NO" : "YES"}
-                      </TableCell>
+                      <TableCell>{details.Prediction}</TableCell>
+                      <TableCell>{details.Accuracy}</TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
               </TableContainer>
               <Typography variant="overline">
-                According to our prediction you don't have diabetes
+                According to our prediction you{" "}
+                {details.Prediction === 0 ? (
+                  <Typography color="primary">don't have pneumonia</Typography>
+                ) : (
+                  <Typography color="error">have pneumonia</Typography>
+                )}
               </Typography>
             </Grid>
           </Grid>
@@ -86,9 +82,7 @@ export default function Pneumonia() {
               </Grid>
 
               {/* graph canvas */}
-              <Grid item xs={12}>
-                <MyPieChart />
-              </Grid>
+              <Grid item xs={12}></Grid>
             </Grid>
           </Grid>
         </Paper>

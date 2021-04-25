@@ -1,9 +1,20 @@
 export const REGISTER_USER = "REGISTER_USER";
+
+// diabetes
 export const PREDICT_DIABETES_8 = "PREDICT_DIABETES_8";
 export const PREDICT_DIABETES_4 = "PREDICT_DIABETES_4";
+export const PAST_RECORDS_DIABETES = "PAST_DIABETES";
+
+// pneumonia
+export const PREDICT_PNEUMONIA = "PREDICT_PNEUMONIA";
+export const PAST_RECORDS_PNEUMONIA = "PAST_PNEUMONIA";
+
+// snackbar
 export const INFO_SNACKBAR = "INFO_SNACKBAR";
 export const SUCCESS_SNACKBAR = "SUCCESS_SNACKBAR";
 export const FAILURE_SNACKBAR = "FAILURE_SNACKBAR";
 export const HIDE_SNACKBAR = "HIDE_SNACKBAR";
+
+// spinner
 export const SHOW_SPINNER = "SHOW_SPINNER";
 export const HIDE_SPINNER = "HIDE_SPINNER";
