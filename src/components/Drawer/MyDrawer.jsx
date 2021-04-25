@@ -2,6 +2,7 @@
 import React from "react";
 import {
   AppBar,
+  Button,
   CssBaseline,
   Divider,
   Drawer,
@@ -16,31 +17,48 @@ import {
 
 // icons
 import {
+  AccessTime as TimeIcon,
   Menu as MenuIcon,
   BlurOn as VirusIcon,
-  HomeOutlined as HomeIcon,
   ChevronLeft as ChevronLeftIcon,
 } from "@material-ui/icons";
 
+// firebase
+import { auth } from "../../firebase";
+
 // navigation
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 // styles
 import clsx from "clsx";
 import drawerStyles from "./styles";
-import { read_cookie } from "sfcookies";
+import { delete_cookie, read_cookie } from "sfcookies";
 
 export default function MyDrawer(props) {
+  // styles
   const classes = drawerStyles();
+
+  const uid = read_cookie("uid");
+
   const [open, setOpen] = React.useState(true);
   const [titleName, setTitleName] = React.useState("DISEASE CLASSIFIER");
-  const uid = read_cookie("uid");
   const handleDrawerToggle = () => setOpen(!open);
+
+  // navigation
+  const history = useHistory();
+
+  const googleSignout = () => {
+    auth.signOut().then(() => {
+      delete_cookie("uid");
+      delete_cookie("name");
+      history.replace("/");
+    });
+  };
 
   const drawerItems = [
     {
       name: "Home",
-      icon: <HomeIcon color="primary" />,
+      icon: <TimeIcon color="primary" />,
       link: `/home/${uid}`,
       tooltip: "Home",
       title: "Home",
@@ -121,6 +139,11 @@ export default function MyDrawer(props) {
           <Typography noWrap className={classes.title}>
             {titleName}
           </Typography>
+          <Tooltip title="logout">
+            <Button variant="text" color="inherit" onClick={googleSignout}>
+              Logout
+            </Button>
+          </Tooltip>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -137,6 +160,11 @@ export default function MyDrawer(props) {
         }}
       >
         <div className={classes.toolbar}>
+          <div>
+            <Typography variant="h5" className={classes.username}>
+              {read_cookie("name")}
+            </Typography>
+          </div>
           <IconButton onClick={handleDrawerToggle}>
             <ChevronLeftIcon />
           </IconButton>

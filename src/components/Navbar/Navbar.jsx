@@ -1,16 +1,14 @@
 // core
 import React from "react";
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import { bake_cookie } from "sfcookies";
 
 // navigation
 import { Link } from "react-router-dom";
 
 // styles
 import { navbarStyles } from "./styles";
-
-// components
-import MyButton from "../Button/MyButton";
 
 // firebase
 import { firebase_provider, auth } from "../../firebase";
@@ -32,6 +30,7 @@ export default function Navbar() {
   const googleSignInPopup = async () => {
     try {
       const res = await auth.signInWithPopup(firebase_provider);
+      bake_cookie("name", res.additionalUserInfo.profile.name);
       const uid = res.user.uid;
       const email = res.additionalUserInfo.profile.email;
       dispatch(register_user({ uid: uid, email: email }));
@@ -50,7 +49,7 @@ export default function Navbar() {
               Disease Classifier
             </Typography>
           </Link>
-          <MyButton onClick={googleSignInPopup}>Login with Google</MyButton>
+          <Button onClick={googleSignInPopup}>Login with Google</Button>
         </Toolbar>
       </AppBar>
     </div>
