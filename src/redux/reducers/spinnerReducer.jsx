@@ -1,3 +1,4 @@
+// action types
 import { SHOW_SPINNER, HIDE_SPINNER } from "../actions/actionTypes";
 
 const initialState = {

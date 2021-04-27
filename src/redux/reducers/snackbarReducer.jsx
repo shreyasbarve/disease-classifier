@@ -1,3 +1,4 @@
+// action types
 import {
   SUCCESS_SNACKBAR,
   FAILURE_SNACKBAR,

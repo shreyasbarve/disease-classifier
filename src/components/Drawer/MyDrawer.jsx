@@ -30,28 +30,39 @@ import { auth } from "../../firebase";
 // navigation
 import { useHistory } from "react-router-dom";
 
+// redux
+import { success_snackbar } from "../../redux/actions/snackbar";
+import { useDispatch } from "react-redux";
+
+// cookies
+import { delete_cookie, read_cookie } from "sfcookies";
+
 // styles
 import clsx from "clsx";
 import drawerStyles from "./styles";
-import { delete_cookie, read_cookie } from "sfcookies";
 
 export default function MyDrawer(props) {
   // styles
   const classes = drawerStyles();
 
+  // stored value
   const uid = read_cookie("uid");
+
+  // redux
+  const dispatch = useDispatch();
+
+  // navigation
+  const history = useHistory();
 
   const [open, setOpen] = React.useState(true);
   const [titleName, setTitleName] = React.useState("DISEASE CLASSIFIER");
   const handleDrawerToggle = () => setOpen(!open);
 
-  // navigation
-  const history = useHistory();
-
   const googleSignout = () => {
     auth.signOut().then(() => {
       delete_cookie("uid");
       delete_cookie("name");
+      dispatch(success_snackbar("Logout succesful"));
       history.replace("/");
     });
   };
@@ -73,7 +84,7 @@ export default function MyDrawer(props) {
         {
           name: "Home",
           icon: <VirusIcon color="primary" />,
-          link: `/diabetes/${uid}`,
+          link: `/diabetes/home/${uid}`,
         },
         {
           name: "Prevention",
@@ -93,7 +104,7 @@ export default function MyDrawer(props) {
         {
           name: "Home",
           icon: <VirusIcon color="primary" />,
-          link: `/pneumonia/${uid}`,
+          link: `/pneumonia/home/${uid}`,
         },
         {
           name: "Prevention",
@@ -125,7 +136,9 @@ export default function MyDrawer(props) {
         <div key={index}>
           <List
             subheader={
-              <ListSubheader>{open ? item.listTitle : ""}</ListSubheader>
+              <ListSubheader color="primary">
+                {open ? item.listTitle : ""}
+              </ListSubheader>
             }
           >
             {item.details.map((detail, index) => (

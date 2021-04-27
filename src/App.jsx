@@ -35,14 +35,14 @@ export default function App() {
         {/* parent drawer on all pages */}
         <MyDrawer>
           <Route exact path="/home/:uid" component={Home} />
-          <Route exact path="/diabetes/:uid" component={Diabetes} />
+          <Route exact path="/diabetes/home/:uid" component={Diabetes} />
           <Route
             exact
             path="/diabetes/prevention/:uid"
             component={PreventionDiabetes}
           />
           <Route exact path="/diabetes/cure/:uid" component={CureDiabetes} />
-          <Route exact path="/pneumonia/:uid" component={Pneumonia} />
+          <Route exact path="/pneumonia/home/:uid" component={Pneumonia} />
           <Route
             exact
             path="/pneumonia/prevention/:uid"

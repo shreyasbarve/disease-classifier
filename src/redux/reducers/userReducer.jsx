@@ -1,3 +1,4 @@
+// action types
 import { REGISTER_USER } from "../actions/actionTypes";
 
 const userReducer = (user = {}, action) => {

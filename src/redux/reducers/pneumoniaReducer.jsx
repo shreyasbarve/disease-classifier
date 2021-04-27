@@ -1,3 +1,4 @@
+// action types
 import {
   PREDICT_PNEUMONIA,
   PAST_RECORDS_PNEUMONIA,

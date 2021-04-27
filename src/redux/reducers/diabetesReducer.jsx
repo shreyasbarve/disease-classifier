@@ -1,3 +1,4 @@
+// action types
 import {
   PAST_RECORDS_DIABETES,
   PREDICT_DIABETES_4,

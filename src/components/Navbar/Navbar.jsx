@@ -2,6 +2,8 @@
 import React from "react";
 import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+
+// cookies
 import { bake_cookie } from "sfcookies";
 
 // navigation

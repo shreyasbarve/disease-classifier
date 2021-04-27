@@ -1,6 +1,12 @@
 import * as api from "../../api/api";
+
+// action types
 import { REGISTER_USER } from "./actionTypes";
+
+// reducers
 import { failure_snackbar } from "./snackbar";
+
+// cookies
 import { bake_cookie } from "sfcookies";
 
 // action creators

@@ -1,9 +1,13 @@
 import * as api from "../../api/api";
+
+// action types
 import {
   PREDICT_DIABETES_4,
   PREDICT_DIABETES_8,
   PAST_RECORDS_DIABETES,
 } from "./actionTypes";
+
+// reducers
 import {
   success_snackbar,
   failure_snackbar,
@@ -11,6 +15,8 @@ import {
   hide_snackbar,
 } from "./snackbar";
 import { show_spinner, hide_spinner } from "./spinner";
+
+// cookies
 import { read_cookie } from "sfcookies";
 
 export const predict_diabetes_4 = (details) => async (dispatch) => {
