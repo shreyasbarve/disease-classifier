@@ -10,6 +10,7 @@ import {
   List,
   ListItem,
   ListItemIcon,
+  ListSubheader,
   Toolbar,
   Tooltip,
   Typography,
@@ -55,162 +56,99 @@ export default function MyDrawer(props) {
     });
   };
 
-  const homeItems = [
+  const data = [
     {
-      name: "Home",
-      icon: <TimeIcon color="primary" />,
-      link: `/home/${uid}`,
-      tooltip: "Home",
-      title: "Home",
-    },
-  ];
-
-  const diabetesItems = [
-    {
-      name: "Diabetes",
-      icon: <VirusIcon color="primary" />,
-      link: `/diabetes/${uid}`,
-      tooltip: "Diabetes",
-      title: "Diabetes",
+      listTitle: "Home",
+      details: [
+        {
+          name: "History",
+          icon: <TimeIcon color="primary" />,
+          link: `/home/${uid}`,
+        },
+      ],
     },
     {
-      name: "Prevention",
-      icon: <VirusIcon color="primary" />,
-      link: `/diabetes/prevention/${uid}`,
-      tooltip: "Diabetes Prevention",
-      title: "Diabetes Prevention",
+      listTitle: "Diabetes",
+      details: [
+        {
+          name: "Home",
+          icon: <VirusIcon color="primary" />,
+          link: `/diabetes/${uid}`,
+        },
+        {
+          name: "Prevention",
+          icon: <VirusIcon color="primary" />,
+          link: `/diabetes/prevention/${uid}`,
+        },
+        {
+          name: "Cure",
+          icon: <VirusIcon color="primary" />,
+          link: `/diabetes/cure/${uid}`,
+        },
+      ],
     },
     {
-      name: "Cure",
-      icon: <VirusIcon color="primary" />,
-      link: `/diabetes/cure/${uid}`,
-      tooltip: "Diabetes Cure",
-      title: "Diabetes Cure",
-    },
-  ];
-
-  const pneumoniaItems = [
-    {
-      name: "Pneumonia",
-      icon: <VirusIcon color="primary" />,
-      link: `/pneumonia/${uid}`,
-      tooltip: "Pneumonia",
-      title: "Pneumonia",
-    },
-    {
-      name: "Prevention",
-      icon: <VirusIcon color="primary" />,
-      link: `/pneumonia/prevention/${uid}`,
-      tooltip: "Pneumonia Prevention",
-      title: "Pneumonia Prevention",
+      listTitle: "Pneumonia",
+      details: [
+        {
+          name: "Home",
+          icon: <VirusIcon color="primary" />,
+          link: `/pneumonia/${uid}`,
+        },
+        {
+          name: "Prevention",
+          icon: <VirusIcon color="primary" />,
+          link: `/pneumonia/prevention/${uid}`,
+        },
+        {
+          name: "Cure",
+          icon: <VirusIcon color="primary" />,
+          link: `/pneumonia/cure/${uid}`,
+        },
+      ],
     },
     {
-      name: "Cure",
-      icon: <VirusIcon color="primary" />,
-      link: `/pneumonia/cure/${uid}`,
-      tooltip: "Pneumonia Cure",
-      title: "Pneumonia Cure",
-    },
-  ];
-
-  const fractureItems = [
-    {
-      name: "Fractures",
-      icon: <VirusIcon color="primary" />,
-      link: `/fractures/${uid}`,
-      tooltip: "Fractures",
-      title: "Fractures",
+      listTitle: "Fractures",
+      details: [
+        {
+          name: "Home",
+          icon: <VirusIcon color="primary" />,
+          link: `/fractures/${uid}`,
+        },
+      ],
     },
   ];
 
   const drawer = (
-    <div>
-      <List>
-        {homeItems.map((item, index) => (
-          <Tooltip title={item.tooltip} key={index}>
-            <ListItem
-              button
-              onClick={() => {
-                setTitleName(item.title);
-                document.title = item.title;
-                history.replace(`${item.link}`);
-              }}
-            >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <Typography variant="body1" color="textSecondary">
-                {item.name}
-              </Typography>
-            </ListItem>
-          </Tooltip>
-        ))}
-      </List>
-
-      <Divider />
-
-      <List>
-        {diabetesItems.map((item, index) => (
-          <Tooltip title={item.tooltip} key={index}>
-            <ListItem
-              button
-              onClick={() => {
-                setTitleName(item.title);
-                document.title = item.title;
-                history.push(`${item.link}`);
-              }}
-            >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <Typography variant="body1" color="textSecondary">
-                {item.name}
-              </Typography>
-            </ListItem>
-          </Tooltip>
-        ))}
-      </List>
-
-      <Divider />
-
-      <List>
-        {pneumoniaItems.map((item, index) => (
-          <Tooltip title={item.tooltip} key={index}>
-            <ListItem
-              button
-              onClick={() => {
-                setTitleName(item.title);
-                document.title = item.title;
-                history.push(`${item.link}`);
-              }}
-            >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <Typography variant="body1" color="textSecondary">
-                {item.name}
-              </Typography>
-            </ListItem>
-          </Tooltip>
-        ))}
-      </List>
-
-      <Divider />
-
-      <List>
-        {fractureItems.map((item, index) => (
-          <Tooltip title={item.tooltip} key={index}>
-            <ListItem
-              button
-              onClick={() => {
-                setTitleName(item.title);
-                document.title = item.title;
-                history.push(`${item.link}`);
-              }}
-            >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <Typography variant="body1" color="textSecondary">
-                {item.name}
-              </Typography>
-            </ListItem>
-          </Tooltip>
-        ))}
-      </List>
-    </div>
+    <>
+      {data.map((item, index) => (
+        <div key={index}>
+          <List
+            subheader={
+              <ListSubheader>{open ? item.listTitle : ""}</ListSubheader>
+            }
+          >
+            {item.details.map((detail, index) => (
+              <Tooltip title={`${item.listTitle} ${detail.name}`} key={index}>
+                <ListItem
+                  button
+                  onClick={() => {
+                    setTitleName(`${item.listTitle} > ${detail.name}`);
+                    history.replace(`${detail.link}`);
+                  }}
+                >
+                  <ListItemIcon>{detail.icon}</ListItemIcon>
+                  <Typography variant="body1" color="textSecondary">
+                    {detail.name}
+                  </Typography>
+                </ListItem>
+              </Tooltip>
+            ))}
+          </List>
+          <Divider />
+        </div>
+      ))}
+    </>
   );
 
   return (
@@ -225,7 +163,6 @@ export default function MyDrawer(props) {
         <Toolbar>
           <IconButton
             color="inherit"
-            aria-label="open drawer"
             onClick={handleDrawerToggle}
             edge="start"
             className={clsx(classes.menuButton, {
