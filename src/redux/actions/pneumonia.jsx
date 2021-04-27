@@ -29,7 +29,6 @@ export const predict_pneumonia = (details) => async (dispatch) => {
 
 export const past_records_pneumonia = () => async (dispatch) => {
   try {
-    dispatch(show_spinner());
     const { data } = await api.past_records_pneumonia({
       uid: read_cookie("uid"),
     });

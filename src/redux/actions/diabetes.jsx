@@ -50,7 +50,6 @@ export const past_records_diabetes = () => async (dispatch) => {
       uid: read_cookie("uid"),
     });
     dispatch({ type: PAST_RECORDS_DIABETES, payload: data });
-    dispatch(hide_spinner());
   } catch (error) {
     console.log(error.message);
     dispatch(failure_snackbar("Failure"));

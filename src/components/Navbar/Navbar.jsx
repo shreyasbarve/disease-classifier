@@ -33,6 +33,7 @@ export default function Navbar() {
       bake_cookie("name", res.additionalUserInfo.profile.name);
       const uid = res.user.uid;
       const email = res.additionalUserInfo.profile.email;
+      bake_cookie("email", res.additionalUserInfo.profile.email);
       dispatch(register_user({ uid: uid, email: email }));
       history.replace(`/home/${uid}`);
     } catch (err) {

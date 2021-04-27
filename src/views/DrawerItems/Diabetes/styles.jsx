@@ -24,4 +24,12 @@ export const useStyles = makeStyles((theme) => ({
       marginTop: "1.2rem",
     },
   },
+  source: {
+    textAlign: "end",
+    marginTop: "3rem",
+  },
+  link: {
+    textDecoration: "none",
+    textAlign: "end",
+  },
 }));

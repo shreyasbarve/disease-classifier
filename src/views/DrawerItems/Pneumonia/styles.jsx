@@ -22,4 +22,12 @@ export const useStyles = makeStyles((theme) => ({
   imageContainer: {
     marginBottom: "1.2rem",
   },
+  source: {
+    textAlign: "end",
+    marginTop: "3rem",
+  },
+  link: {
+    textDecoration: "none",
+    textAlign: "end",
+  },
 }));

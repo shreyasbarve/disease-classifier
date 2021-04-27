@@ -27,7 +27,7 @@ import {
 import { auth } from "../../firebase";
 
 // navigation
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 // styles
 import clsx from "clsx";
@@ -55,7 +55,7 @@ export default function MyDrawer(props) {
     });
   };
 
-  const drawerItems = [
+  const homeItems = [
     {
       name: "Home",
       icon: <TimeIcon color="primary" />,
@@ -63,6 +63,9 @@ export default function MyDrawer(props) {
       tooltip: "Home",
       title: "Home",
     },
+  ];
+
+  const diabetesItems = [
     {
       name: "Diabetes",
       icon: <VirusIcon color="primary" />,
@@ -71,12 +74,46 @@ export default function MyDrawer(props) {
       title: "Diabetes",
     },
     {
+      name: "Prevention",
+      icon: <VirusIcon color="primary" />,
+      link: `/diabetes/prevention/${uid}`,
+      tooltip: "Diabetes Prevention",
+      title: "Diabetes Prevention",
+    },
+    {
+      name: "Cure",
+      icon: <VirusIcon color="primary" />,
+      link: `/diabetes/cure/${uid}`,
+      tooltip: "Diabetes Cure",
+      title: "Diabetes Cure",
+    },
+  ];
+
+  const pneumoniaItems = [
+    {
       name: "Pneumonia",
       icon: <VirusIcon color="primary" />,
       link: `/pneumonia/${uid}`,
       tooltip: "Pneumonia",
       title: "Pneumonia",
     },
+    {
+      name: "Prevention",
+      icon: <VirusIcon color="primary" />,
+      link: `/pneumonia/prevention/${uid}`,
+      tooltip: "Pneumonia Prevention",
+      title: "Pneumonia Prevention",
+    },
+    {
+      name: "Cure",
+      icon: <VirusIcon color="primary" />,
+      link: `/pneumonia/cure/${uid}`,
+      tooltip: "Pneumonia Cure",
+      title: "Pneumonia Cure",
+    },
+  ];
+
+  const fractureItems = [
     {
       name: "Fractures",
       icon: <VirusIcon color="primary" />,
@@ -89,27 +126,88 @@ export default function MyDrawer(props) {
   const drawer = (
     <div>
       <List>
-        {drawerItems.map((item, index) => (
-          <Link
-            to={`${item.link}`}
-            style={{ textDecoration: "none" }}
-            key={index}
-          >
-            <Tooltip title={item.tooltip}>
-              <ListItem
-                button
-                onClick={() => {
-                  setTitleName(item.title);
-                  document.title = item.title;
-                }}
-              >
-                <ListItemIcon>{item.icon}</ListItemIcon>
-                <Typography variant="body1" color="textSecondary">
-                  {item.name}
-                </Typography>
-              </ListItem>
-            </Tooltip>
-          </Link>
+        {homeItems.map((item, index) => (
+          <Tooltip title={item.tooltip} key={index}>
+            <ListItem
+              button
+              onClick={() => {
+                setTitleName(item.title);
+                document.title = item.title;
+                history.replace(`${item.link}`);
+              }}
+            >
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <Typography variant="body1" color="textSecondary">
+                {item.name}
+              </Typography>
+            </ListItem>
+          </Tooltip>
+        ))}
+      </List>
+
+      <Divider />
+
+      <List>
+        {diabetesItems.map((item, index) => (
+          <Tooltip title={item.tooltip} key={index}>
+            <ListItem
+              button
+              onClick={() => {
+                setTitleName(item.title);
+                document.title = item.title;
+                history.push(`${item.link}`);
+              }}
+            >
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <Typography variant="body1" color="textSecondary">
+                {item.name}
+              </Typography>
+            </ListItem>
+          </Tooltip>
+        ))}
+      </List>
+
+      <Divider />
+
+      <List>
+        {pneumoniaItems.map((item, index) => (
+          <Tooltip title={item.tooltip} key={index}>
+            <ListItem
+              button
+              onClick={() => {
+                setTitleName(item.title);
+                document.title = item.title;
+                history.push(`${item.link}`);
+              }}
+            >
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <Typography variant="body1" color="textSecondary">
+                {item.name}
+              </Typography>
+            </ListItem>
+          </Tooltip>
+        ))}
+      </List>
+
+      <Divider />
+
+      <List>
+        {fractureItems.map((item, index) => (
+          <Tooltip title={item.tooltip} key={index}>
+            <ListItem
+              button
+              onClick={() => {
+                setTitleName(item.title);
+                document.title = item.title;
+                history.push(`${item.link}`);
+              }}
+            >
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <Typography variant="body1" color="textSecondary">
+                {item.name}
+              </Typography>
+            </ListItem>
+          </Tooltip>
         ))}
       </List>
     </div>
@@ -161,9 +259,14 @@ export default function MyDrawer(props) {
       >
         <div className={classes.toolbar}>
           <div>
-            <Typography variant="h5" className={classes.username}>
-              {read_cookie("name")}
-            </Typography>
+            <div>
+              <Typography variant="subtitle1">{read_cookie("name")}</Typography>
+            </div>
+            <div>
+              <Typography variant="subtitle2" color="textSecondary">
+                {read_cookie("email")}
+              </Typography>
+            </div>
           </div>
           <IconButton onClick={handleDrawerToggle}>
             <ChevronLeftIcon />
