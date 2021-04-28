@@ -1,7 +1,9 @@
 // core
-import React from "react";
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+
+// styles
+import { useStyles } from "./styles";
 
 // cookies
 import { bake_cookie } from "sfcookies";
@@ -14,6 +16,9 @@ import { register_user } from "../../redux/actions/user";
 import { useDispatch } from "react-redux";
 
 export default function LoginButton() {
+  // styles
+  const classes = useStyles();
+
   // navigation
   const history = useHistory();
 
@@ -39,7 +44,7 @@ export default function LoginButton() {
     <Button
       variant="contained"
       onClick={googleSignInPopup}
-      style={{ backgroundColor: "#fff", color: "#000" }}
+      className={classes.root}
     >
       Login with Google
     </Button>
