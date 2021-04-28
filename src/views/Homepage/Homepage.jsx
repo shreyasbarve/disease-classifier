@@ -1,6 +1,9 @@
 // core
 import { Box, Grid, Typography } from "@material-ui/core";
 
+// icons
+import { GitHub } from "@material-ui/icons";
+
 // components
 import LoginButton from "../../components/LoginButton/LoginButton";
 import MyCard from "../../components/Card/MyCard";
@@ -15,8 +18,6 @@ import diabetes3 from "../../images/diabetes3.png";
 import pneumonia1 from "../../images/pneumonia1.png";
 import pneumonia2 from "../../images/pneumonia2.png";
 import pneumonia3 from "../../images/pneumonia3.png";
-import { GitHub } from "@material-ui/icons";
-// import background from "../../images/ML1.png";
 
 export default function Homepage() {
   // styles
@@ -87,7 +88,14 @@ export default function Homepage() {
           Copyright &copy; {new Date().getFullYear()}
         </Grid>
         <Grid item xs={12} className={classes.footerItem}>
-          <GitHub />
+          <a
+            href="https://github.com/shreyasbarve/disease-classifier"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: "#fff" }}
+          >
+            <GitHub />
+          </a>
         </Grid>
       </Box>
     </Box>
