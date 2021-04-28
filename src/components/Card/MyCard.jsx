@@ -1,39 +1,37 @@
 // core
 import {
   Card,
-  CardHeader,
-  CardMedia,
+  CardActionArea,
   CardContent,
-  Avatar,
+  CardMedia,
   Typography,
 } from "@material-ui/core";
 
 // styles
-import cardStyles from "./styles";
+import { useStyles } from "./styles";
 
-// image
-import cover from "../../images/cover.jpg";
-
-export default function MyCard() {
+export default function MyCard({ title, img, link }) {
   // styles
-  const classes = cardStyles();
+  const classes = useStyles();
 
   return (
-    <Card className={classes.root} elevation={6}>
-      <CardHeader
-        avatar={<Avatar className={classes.avatar}>C</Avatar>}
-        title="Card title"
-        subheader="Card subtitle"
-      />
-      <CardMedia className={classes.media} image={cover} title="Card Title" />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" noWrap>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta
-          labore dolor suscipit adipisci? Illo iusto totam eum inventore
-          corporis vitae asperiores aperiam impedit. Officiis modi nobis facilis
-          tempore, laborum ducimus?
-        </Typography>
-      </CardContent>
-    </Card>
+    <a href={link} target="blank">
+      <Card className={classes.root}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            alt="Contemplative Reptile"
+            height="200"
+            image={img}
+            title="Contemplative Reptile"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="h2">
+              {title}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </a>
   );
 }

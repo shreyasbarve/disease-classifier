@@ -26,7 +26,7 @@ import PneumoniaRecord from "./views/DrawerItems/Home/PneumoniaRecord";
 import Fractures from "./views/DrawerItems/Fractures/Fractures";
 
 // map
-import Locations from "./views/Locations";
+import Locations from "./views/DrawerItems/Locations";
 
 export default function App() {
   return (
@@ -36,11 +36,12 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={Login} />
 
-        <Route exact path="/locations" component={Locations} />
-
         {/* parent drawer on all pages */}
         <MyDrawer>
           <Route exact path="/home/:uid" component={Home} />
+
+          <Route exact path="/locations" component={Locations} />
+
           <Route
             exact
             path="/home/diabetes/records/:uid/:recordid"

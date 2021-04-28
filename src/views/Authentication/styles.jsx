@@ -1,12 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const loginStyles = makeStyles(() => ({
-  root: {
-    height: "100vh",
-  },
-  grid: {
-    marginTop: "2rem",
-  },
   copyright: {
     fontSize: "1.2rem",
     letterSpacing: 2,
@@ -14,6 +8,18 @@ const loginStyles = makeStyles(() => ({
     left: 0,
     right: 0,
     bottom: 10,
+  },
+  root: {
+    height: "100vh",
+    padding: "0",
+  },
+  root1: {
+    // padLeft:"30%",
+    paddingTop: "5%",
+    color: "#fafafa",
+  },
+  grid: {
+    marginTop: "2rem",
   },
 }));
 

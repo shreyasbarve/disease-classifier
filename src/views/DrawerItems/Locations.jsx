@@ -1,7 +1,6 @@
-// import "./App.css";
 import ReactMapGl, { Marker, Popup } from "react-map-gl";
 import React, { useState } from "react";
-import hospital from "../mapData.json";
+import hospital from "../../mapData.json";
 
 export default function Locations() {
   const [viewport, setViewport] = useState({

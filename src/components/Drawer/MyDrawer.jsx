@@ -19,9 +19,11 @@ import {
 // icons
 import {
   AccessTime as TimeIcon,
+  House as HomeIcon,
   Menu as MenuIcon,
-  BlurOn as VirusIcon,
+  Favorite as PreventionIcon,
   ChevronLeft as ChevronLeftIcon,
+  Room as Location,
 } from "@material-ui/icons";
 
 // firebase
@@ -82,13 +84,13 @@ export default function MyDrawer(props) {
       listTitle: "Diabetes",
       details: [
         {
-          name: "Home",
-          icon: <VirusIcon color="primary" />,
+          name: "Predictor",
+          icon: <HomeIcon color="primary" />,
           link: `/diabetes/home/${uid}`,
         },
         {
           name: "Prevention and Cure",
-          icon: <VirusIcon color="primary" />,
+          icon: <PreventionIcon color="primary" />,
           link: `/diabetes/preventionandcure/${uid}`,
         },
       ],
@@ -97,13 +99,13 @@ export default function MyDrawer(props) {
       listTitle: "Pneumonia",
       details: [
         {
-          name: "Home",
-          icon: <VirusIcon color="primary" />,
+          name: "Predictor",
+          icon: <HomeIcon color="primary" />,
           link: `/pneumonia/home/${uid}`,
         },
         {
           name: "Prevention and Cure",
-          icon: <VirusIcon color="primary" />,
+          icon: <PreventionIcon color="primary" />,
           link: `/pneumonia/preventionandcure/${uid}`,
         },
       ],
@@ -113,11 +115,21 @@ export default function MyDrawer(props) {
     //   details: [
     //     {
     //       name: "Home",
-    //       icon: <VirusIcon color="primary" />,
+    //       icon: <PreventionIcon color="primary" />,
     //       link: `/fractures/${uid}`,
     //     },
     //   ],
     // },
+    {
+      listTitle: "Nearby Hospitals",
+      details: [
+        {
+          name: "Map",
+          icon: <Location color="primary" />,
+          link: `/locations`,
+        },
+      ],
+    },
   ];
 
   const drawer = (
