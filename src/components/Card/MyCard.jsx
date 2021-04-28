@@ -13,7 +13,6 @@ import {
 import { useStyles } from "./styles";
 
 export default function MyCard({ title, img, link }) {
-  console.log(img);
   // styles
   const classes = useStyles();
 
