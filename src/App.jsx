@@ -1,5 +1,10 @@
 // core
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 // components
 import MyDrawer from "./components/Drawer/MyDrawer";
@@ -10,7 +15,6 @@ import MySpinner from "./components/Spinner/MySpinner";
 
 // Homepage
 import Homepage from "./views/Homepage/Homepage";
-// import Login from "./views/Authentication/Login";
 import Home from "./views/DrawerItems/Home/Home";
 
 // diabetes
@@ -36,7 +40,6 @@ export default function App() {
       <MySnackbar />
       <Switch>
         <Route exact path="/" component={Homepage} />
-        {/* <Route exact path="/" component={Login} /> */}
 
         {/* parent drawer on all pages */}
         <MyDrawer>
@@ -71,6 +74,7 @@ export default function App() {
           <Route exact path="/fractures/:uid" component={Fractures} />
         </MyDrawer>
       </Switch>
+      <Redirect path="/" />
     </Router>
   );
 }

@@ -33,7 +33,11 @@ export default function Form() {
   const [userData, setuserData] = useState(initialState);
 
   const handleChange = (e) => {
-    setuserData({ ...userData, [e.target.name]: e.target.value });
+    if (!isNaN(e.target.value)) {
+      setuserData({ ...userData, [e.target.name]: e.target.value });
+    } else {
+      setuserData({ ...userData, [e.target.name]: 0 });
+    }
   };
 
   const handleSubmit = (e) => {
