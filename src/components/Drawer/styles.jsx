@@ -65,7 +65,7 @@ const drawerStyles = makeStyles((theme) => ({
   title: {
     textTransform: "uppercase",
     fontWeight: "bold",
-    letterSpacing: 3,
+    letterSpacing: 2,
     fontSize: "1.3rem",
     flexGrow: 1,
   },

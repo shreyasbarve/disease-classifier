@@ -1,10 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { blue } from "@material-ui/core/colors";
+import { blue, red, green } from "@material-ui/core/colors";
 
 export const useStyles = makeStyles((theme) => ({
   title: {
-    letterSpacing: 3,
-    fontSize: "1.3rem",
+    letterSpacing: 2,
+    fontSize: "1.5rem",
     fontWeight: "bold",
     textTransform: "uppercase",
     color: blue[600],
@@ -13,6 +13,10 @@ export const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
+  },
+  button: {
+    borderRadius: 50,
+    padding: "1.5% 5%",
   },
   rightGrid: {
     display: "flex",
@@ -29,5 +33,20 @@ export const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: "none",
     textAlign: "end",
+  },
+  have: {
+    textTransform: "capitalize",
+    fontWeight: "bold",
+    color: red[600],
+  },
+  nothave: {
+    textTransform: "capitalize",
+    fontWeight: "bold",
+    color: green[600],
+  },
+  title2: {
+    fontWeight: "bold",
+    textTransform: "capitalize",
+    marginTop: "0.5rem",
   },
 }));

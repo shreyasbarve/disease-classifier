@@ -95,6 +95,12 @@ export const past_records_diabetes = (data) =>
 // ]
 // When no data - []
 
+export const single_record_diabetes = (data, id) =>
+  axios.post(`${URL}/singleDiabetesRecord/?id=${id}`, data);
+
+export const single_record_pneumonia = (data, id) =>
+  axios.post(`${URL}/singlePneumoniaRecord/?id=${id}`, data);
+
 export const past_records_pneumonia = (data) =>
   axios.post(`${URL}/pneumoniaRecords/`, data);
 // Body -

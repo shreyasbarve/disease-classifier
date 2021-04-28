@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "coordinates": [21.13121715912344, 79.09949358093314],
+    "name": "Government Hospital",
+    "description": "Medical Sqaure, 440009 67 Ajni Road, Medical Chowk, Hanuman Nagar, Nagpur, Maharashtra 440009"
+  },
+  {
+    "id": 2,
+    "coordinates": [21.13886803272872, 79.08529944803466],
+    "name": "Neuron Hospital",
+    "description": "53 Police Station Road opp. Dhantoli, Ramdaspeth, Nagpur, Maharashtra 440012"
+  },
+  {
+    "id": 3,
+    "coordinates": [21.145612793359263, 79.08001649941423],
+    "name": "Lata Mangeshkar Hospital",
+    "description": "YMCA Complex, Maharajbagh Rd, Sitabuldi, Nagpur, Maharashtra 440012"
+  },
+  {
+    "id": 4,
+    "coordinates": [21.1128974114263, 79.06546458343026],
+    "name": "Orange City Hospital & Research Institute",
+    "description": "19, Khamla Road Veer Sawarkar Square Opposite to Jupiter College, Maharashtra 440015"
+  },
+  {
+    "id": 5,
+    "coordinates": [21.111125784295755, 79.07208984737758],
+    "name": "Kalpavruksha Hospital",
+    "description": "Plot no.87, Ring Rd, Pragati Colony, Chhatrapati Shivaji Square, Kanphade nagar, Nagpur, Maharashtra 440015"
+  },
+  {
+    "id": 6,
+    "coordinates": [21.114336061165748, 79.07242959358972],
+    "name": "Dew Medicare and Trinity Hospital",
+    "description": "PLot No 80, 81, Wardha Rd, Hindustan Colony, Vivekanand Nagar, Nagpur, Maharashtra 440015"
+  },
+  {
+    "id": 7,
+    "coordinates": [21.133093590435934, 79.07041030595002],
+    "name": "KRIMS Hospitals",
+    "description": "275, Central Bazar Road, New Ramdaspeth, Ramdaspeth, Nagpur, Maharashtra 440010"
+  },
+  {
+    "id": 8,
+    "coordinates": [21.154398757136647, 79.09457606827162],
+    "name": "Mayo Hospital",
+    "description": "52, Meyo Hospital Rd, Mominpura, Nagpur, Maharashtra 440018"
+  },
+  {
+    "id": 9,
+    "coordinates": [21.165249168502363, 79.09727436740081],
+    "name": "Life Line Hospital",
+    "description": "Bhoslewadi, Lashkari Bagh, Awale Chowk, Bhankhera, Kamaal Chok, Nagpur, Maharashtra 440017"
+  },
+  {
+    "id": 10,
+    "coordinates": [21.16702671323957, 79.07058843736796],
+    "name": "Sims Hospital",
+    "description": "Unnamed Road, Sadar, Nagpur, Maharashtra 440013"
+  }
+]

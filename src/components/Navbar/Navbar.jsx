@@ -47,12 +47,18 @@ export default function Navbar() {
     <div className={classes.grow}>
       <AppBar position="sticky" className={classes.appbar}>
         <Toolbar className={classes.navbar}>
-          <Link to="/" className={classes.link}>
+          <Link to="/" className={classes.titleLink}>
             <Typography className={classes.title} variant="button" noWrap>
               Disease Classifier
             </Typography>
           </Link>
-          <Button onClick={googleSignInPopup}>Login with Google</Button>
+          <Button
+            variant="outlined"
+            color="inherit"
+            onClick={googleSignInPopup}
+          >
+            Login with Google
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

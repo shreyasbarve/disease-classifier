@@ -1,7 +1,16 @@
 // core
 import { DataGrid } from "@material-ui/data-grid";
 
-export default function MyTable({ arr }) {
+// navigation
+import { useHistory } from "react-router-dom";
+
+// cookies
+import { read_cookie } from "sfcookies";
+
+export default function MyTable({ name, arr }) {
+  // navigation
+  const history = useHistory();
+
   const cols = [
     {
       field: "id",
@@ -26,5 +35,16 @@ export default function MyTable({ arr }) {
     result: data.result.Prediction,
   }));
 
-  return <DataGrid rows={rows} columns={cols} pageSize={10} />;
+  return (
+    <DataGrid
+      rows={rows}
+      columns={cols}
+      pageSize={10}
+      onRowClick={(item) =>
+        history.push(`${name}/records/${read_cookie("uid")}/${item.id}`, {
+          name: name,
+        })
+      }
+    />
+  );
 }

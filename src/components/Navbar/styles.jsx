@@ -1,23 +1,22 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { blue } from "@material-ui/core/colors";
 
 export const navbarStyles = makeStyles(() => ({
   grow: {
     flexGrow: 1,
   },
   appbar: {
-    backgroundColor: "#fff",
-    boxShadow: "none",
-    borderBottom: "2px solid #000",
+    backgroundColor: blue[600],
   },
   navbar: {
     justifyContent: "center",
   },
-  link: {
+  titleLink: {
     textDecoration: "none",
-    color: "#000",
     flexGrow: 1,
   },
   title: {
+    color: "#fff",
     fontSize: "1.5rem",
   },
 }));

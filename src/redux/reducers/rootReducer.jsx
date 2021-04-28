@@ -1,7 +1,15 @@
 import { combineReducers } from "redux";
 import userReducer from "./userReducer";
-import { diabetesReducer, pastDiabetesReducer } from "./diabetesReducer";
-import { pneumoniaReducer, pastPnuemoniaReducer } from "./pneumoniaReducer";
+import {
+  diabetesReducer,
+  pastDiabetesReducer,
+  singleDiabetesReducer,
+} from "./diabetesReducer";
+import {
+  pneumoniaReducer,
+  pastPneumoniaReducer,
+  singlePneumoniaReducer,
+} from "./pneumoniaReducer";
 import snackbarReducer from "./snackbarReducer";
 import spinnerReducer from "./spinnerReducer";
 
@@ -11,6 +19,8 @@ export default combineReducers({
   spinnerReducer,
   diabetesReducer,
   pastDiabetesReducer,
+  singleDiabetesReducer,
   pneumoniaReducer,
-  pastPnuemoniaReducer,
+  pastPneumoniaReducer,
+  singlePneumoniaReducer,
 });

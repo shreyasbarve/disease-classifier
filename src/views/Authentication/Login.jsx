@@ -10,14 +10,21 @@ import MyCard from "../../components/Card/MyCard";
 import Navbar from "../../components/Navbar/Navbar";
 
 function Copyright() {
+  // styles
+  const classes = loginStyles();
+
   return (
-    <Typography variant="body2" color="primary" align="center">
+    <Typography
+      className={classes.copyright}
+      variant="button"
+      color="primary"
+      align="center"
+    >
       {"Copyright © "}
       <Link color="inherit" href="http://localhost:3000/">
         Disease Classifier
       </Link>{" "}
       {new Date().getFullYear()}
-      {"."}
     </Typography>
   );
 }

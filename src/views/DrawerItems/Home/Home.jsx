@@ -20,10 +20,13 @@ export default function Home() {
   // redux
   const dispatch = useDispatch();
   const diabetesRecords = useSelector((state) => state.pastDiabetesReducer);
-  const pneumoniaRecords = useSelector((state) => state.pastPnuemoniaReducer);
+  const pneumoniaRecords = useSelector((state) => state.pastPneumoniaReducer);
 
   useEffect(() => {
     dispatch(past_records_diabetes());
+  }, [dispatch]);
+
+  useEffect(() => {
     dispatch(past_records_pneumonia());
   }, [dispatch]);
 
@@ -39,7 +42,7 @@ export default function Home() {
 
           {/* results */}
           <Grid item xs={12} className={classes.table}>
-            <MyTable arr={diabetesRecords} />
+            <MyTable name="diabetes" arr={diabetesRecords} />
           </Grid>
         </Paper>
       </Grid>
@@ -56,7 +59,7 @@ export default function Home() {
 
               {/* graph canvas */}
               <Grid item xs={12} className={classes.table}>
-                <MyTable arr={pneumoniaRecords} />
+                <MyTable name="pneumonia" arr={pneumoniaRecords} />
               </Grid>
             </Grid>
           </Grid>

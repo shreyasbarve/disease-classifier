@@ -1,9 +1,6 @@
 // core
 import { useState } from "react";
-import { Paper, Grid, TextField } from "@material-ui/core";
-
-// components
-import MyButton from "../../../components/Button/MyButton";
+import { Paper, Grid, TextField, Button } from "@material-ui/core";
 
 // styles
 import { useStyles } from "./styles";
@@ -171,9 +168,14 @@ export default function Form() {
 
         {/* group 5 */}
         <Grid item xs={12}>
-          <MyButton variant="outlined" color="primary" onClick={handleSubmit}>
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="primary"
+            onClick={handleSubmit}
+          >
             Submit
-          </MyButton>
+          </Button>
         </Grid>
         {/* group 5 */}
       </Grid>

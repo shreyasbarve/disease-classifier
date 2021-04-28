@@ -58,14 +58,17 @@ export default function Result() {
               </TableBody>
             </Table>
           </TableContainer>
-          <Typography variant="overline">
-            According to our prediction{" "}
-            {details.Ones >= 2 ? (
-              <Typography color="error">have diabetes</Typography>
-            ) : (
-              <Typography color="primary">don't have diabetes</Typography>
-            )}
+
+          <Typography className={classes.title2}>
+            According to our prediction
           </Typography>
+          {details.Ones >= 2 ? (
+            <Typography className={classes.have}>you have diabetes</Typography>
+          ) : (
+            <Typography className={classes.nothave}>
+              you don't have diabetes
+            </Typography>
+          )}
         </Grid>
       </Grid>
     </Paper>

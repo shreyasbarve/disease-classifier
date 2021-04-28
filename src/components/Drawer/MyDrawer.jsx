@@ -72,7 +72,7 @@ export default function MyDrawer(props) {
       listTitle: "Home",
       details: [
         {
-          name: "History",
+          name: "Past Records",
           icon: <TimeIcon color="primary" />,
           link: `/home/${uid}`,
         },
@@ -87,14 +87,9 @@ export default function MyDrawer(props) {
           link: `/diabetes/home/${uid}`,
         },
         {
-          name: "Prevention",
+          name: "Prevention and Cure",
           icon: <VirusIcon color="primary" />,
-          link: `/diabetes/prevention/${uid}`,
-        },
-        {
-          name: "Cure",
-          icon: <VirusIcon color="primary" />,
-          link: `/diabetes/cure/${uid}`,
+          link: `/diabetes/preventionandcure/${uid}`,
         },
       ],
     },
@@ -107,27 +102,22 @@ export default function MyDrawer(props) {
           link: `/pneumonia/home/${uid}`,
         },
         {
-          name: "Prevention",
+          name: "Prevention and Cure",
           icon: <VirusIcon color="primary" />,
-          link: `/pneumonia/prevention/${uid}`,
-        },
-        {
-          name: "Cure",
-          icon: <VirusIcon color="primary" />,
-          link: `/pneumonia/cure/${uid}`,
+          link: `/pneumonia/preventionandcure/${uid}`,
         },
       ],
     },
-    {
-      listTitle: "Fractures",
-      details: [
-        {
-          name: "Home",
-          icon: <VirusIcon color="primary" />,
-          link: `/fractures/${uid}`,
-        },
-      ],
-    },
+    // {
+    //   listTitle: "Fractures",
+    //   details: [
+    //     {
+    //       name: "Home",
+    //       icon: <VirusIcon color="primary" />,
+    //       link: `/fractures/${uid}`,
+    //     },
+    //   ],
+    // },
   ];
 
   const drawer = (
@@ -147,7 +137,7 @@ export default function MyDrawer(props) {
                   button
                   onClick={() => {
                     setTitleName(`${item.listTitle} > ${detail.name}`);
-                    history.replace(`${detail.link}`);
+                    history.push(`${detail.link}`);
                   }}
                 >
                   <ListItemIcon>{detail.icon}</ListItemIcon>

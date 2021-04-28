@@ -1,10 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { blue } from "@material-ui/core/colors";
+import { blue, red, green } from "@material-ui/core/colors";
 
 export const useStyles = makeStyles((theme) => ({
   title: {
-    letterSpacing: 3,
-    fontSize: "1.3rem",
+    letterSpacing: 2,
+    fontSize: "1.5rem",
     fontWeight: "bold",
     textTransform: "uppercase",
     color: blue[600],
@@ -19,5 +19,21 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       height: 200,
     },
+  },
+  card2: {
+    marginTop: "2rem",
+  },
+  tableHeading: {
+    fontWeight: "bold",
+  },
+  have: {
+    textTransform: "capitalize",
+    fontWeight: "bold",
+    color: red[600],
+  },
+  nothave: {
+    textTransform: "capitalize",
+    fontWeight: "bold",
+    color: green[600],
   },
 }));

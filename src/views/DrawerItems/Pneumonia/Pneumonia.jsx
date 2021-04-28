@@ -50,7 +50,7 @@ export default function Pneumonia() {
                   <TableHead>
                     <TableRow>
                       <TableCell>Prediction</TableCell>
-                      <TableCell>Accuracy</TableCell>
+                      <TableCell>Output Value</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -61,28 +61,19 @@ export default function Pneumonia() {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Typography variant="overline">
+
+              <Typography clasName={classes.title2}>
                 According to our prediction you{" "}
-                {details.Prediction === 0 ? (
-                  <Typography color="primary">don't have pneumonia</Typography>
+                {details.Prediction === 1 ? (
+                  <Typography className={classes.have}>
+                    have pneumonia
+                  </Typography>
                 ) : (
-                  <Typography color="error">have pneumonia</Typography>
+                  <Typography className={classes.nothave}>
+                    don't have pneumonia
+                  </Typography>
                 )}
               </Typography>
-            </Grid>
-          </Grid>
-        </Paper>
-
-        <Paper className={classes.paper} elevation={5}>
-          <Grid container>
-            <Grid item xs={12}>
-              {/* Title */}
-              <Grid item xs={12} className={classes.title}>
-                contribution of factors affecting the prediction
-              </Grid>
-
-              {/* graph canvas */}
-              <Grid item xs={12}></Grid>
             </Grid>
           </Grid>
         </Paper>
