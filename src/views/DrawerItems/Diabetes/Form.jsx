@@ -33,11 +33,7 @@ export default function Form() {
   const [userData, setuserData] = useState(initialState);
 
   const handleChange = (e) => {
-    if (!isNaN(e.target.value)) {
-      setuserData({ ...userData, [e.target.name]: e.target.value });
-    } else {
-      setuserData({ ...userData, [e.target.name]: 0 });
-    }
+    setuserData({ ...userData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -45,7 +41,7 @@ export default function Form() {
     if (userData.glucose <= 0 || userData.bmi <= 0 || userData.age <= 0) {
       dispatch(failure_snackbar("Insufficient Data"));
     } else if (
-      userData.pregnancies <= 0 ||
+      userData.pregnancies < 0 ||
       userData.bp <= 0 ||
       userData.skin_thickness <= 0 ||
       userData.insulin <= 0
