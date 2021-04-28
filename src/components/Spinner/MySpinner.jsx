@@ -1,5 +1,5 @@
 import React from "react";
-import { CircularProgress, Button, Backdrop } from "@material-ui/core/";
+import { CircularProgress, Backdrop } from "@material-ui/core/";
 
 // styles
 import { makeStyles } from "@material-ui/core/styles";

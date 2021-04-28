@@ -57,8 +57,9 @@ export default function Form() {
     } else {
       dispatch(predict_diabetes_8(userData));
     }
-    setuserData(initialState);
   };
+
+  const handleClear = () => setuserData(initialState);
 
   return (
     <Paper className={classes.paper} elevation={5}>
@@ -175,6 +176,15 @@ export default function Form() {
             onClick={handleSubmit}
           >
             Submit
+          </Button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <Button
+            className={classes.button}
+            variant="outlined"
+            color="inherit"
+            onClick={handleClear}
+          >
+            Clear
           </Button>
         </Grid>
         {/* group 5 */}

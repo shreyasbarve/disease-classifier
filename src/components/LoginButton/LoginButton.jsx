@@ -1,16 +1,10 @@
 // core
 import React from "react";
-import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
 // cookies
 import { bake_cookie } from "sfcookies";
-
-// navigation
-import { Link } from "react-router-dom";
-
-// styles
-import { navbarStyles } from "./styles";
 
 // firebase
 import { firebase_provider, auth } from "../../firebase";
@@ -19,9 +13,7 @@ import { firebase_provider, auth } from "../../firebase";
 import { register_user } from "../../redux/actions/user";
 import { useDispatch } from "react-redux";
 
-export default function Navbar() {
-  const classes = navbarStyles();
-
+export default function LoginButton() {
   // navigation
   const history = useHistory();
 
@@ -44,23 +36,12 @@ export default function Navbar() {
   };
 
   return (
-    <div className={classes.grow}>
-      <AppBar position="sticky" className={classes.appbar}>
-        <Toolbar className={classes.navbar}>
-          <Link to="/" className={classes.titleLink}>
-            <Typography className={classes.title} variant="button" noWrap>
-              Disease Classifier
-            </Typography>
-          </Link>
-          <Button
-            variant="outlined"
-            color="inherit"
-            onClick={googleSignInPopup}
-          >
-            Login with Google
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <Button
+      variant="contained"
+      onClick={googleSignInPopup}
+      style={{ backgroundColor: "#fff", color: "#000" }}
+    >
+      Login with Google
+    </Button>
   );
 }

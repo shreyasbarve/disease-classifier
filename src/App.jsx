@@ -8,8 +8,9 @@ import MyDrawer from "./components/Drawer/MyDrawer";
 import MySnackbar from "./components/Snackbar/MySnackbar";
 import MySpinner from "./components/Spinner/MySpinner";
 
-// Views
-import Login from "./views/Authentication/Login";
+// Homepage
+import Homepage from "./views/Homepage/Homepage";
+// import Login from "./views/Authentication/Login";
 import Home from "./views/DrawerItems/Home/Home";
 
 // diabetes
@@ -34,7 +35,8 @@ export default function App() {
       <MySpinner />
       <MySnackbar />
       <Switch>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={Homepage} />
+        {/* <Route exact path="/" component={Login} /> */}
 
         {/* parent drawer on all pages */}
         <MyDrawer>
