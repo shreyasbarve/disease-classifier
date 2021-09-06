@@ -40,6 +40,6 @@
 | -------- | ------------------ |
 | 57       | Nikeshsingh Baghel |
 | 64       | Prathamesh Channe  |
-| 69       | Rishabh Rathi      |
+| 69       | [Rishabh Rathi](https://rishabhrathi22.github.io/)      |
 | 75       | Shreyas Barve      |
 | 88       | Aditya Sharma      |
